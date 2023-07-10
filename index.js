@@ -1,15 +1,21 @@
 const express = require('express'); 
 const tarefaController = require('./controllers/tarefaController'); 
-const req = require('express/lib/request');
 const app = express(); 
 const port = 3000; 
+const Database = require('./models/database');
 app.set('view engine', 'ejs'); 
+app.get('/', (req, res)=>{
+    res.send("<h1>Tarefas</h1>");
+    Database.connect();
+    let tarefas = Database.query('SELECT * FROM tarefas');
+    console.log(tarefas);
+});
 app.use(express.urlencoded({ extended: true })); 
-//Rotas
-app.get('/',(req, res) =>{res.send("<H1>Tarefas<H1>")})
 app.get('/tarefas', tarefaController.getTarefas); 
-app.post('/tarefas', tarefaController.addTarefa);
-
+app.post('/tarefa', tarefaController.addTarefa);
+app.delete('/tarefa',tarefaController.addTarefa); 
+app.put('/tarefa',tarefaController.addTarefa); 
+app.get('/tarefa',tarefaController.addTarefa); 
 app.listen(port, () => { 
-console.log(`Servidor rodando em http://localhost:${port}`);
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
