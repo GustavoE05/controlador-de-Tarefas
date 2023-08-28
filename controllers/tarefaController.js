@@ -11,4 +11,12 @@ function addTarefa(req, res){
     tarefa.salvar();
     res.redirect('/tarefas');
 }
-module.exports = {getTarefas, addTarefa};
+
+async function deleteTarefa(req, res){
+    if(await Tarefa.deleteTarefa(req.params.id_tarefa)){
+        res.redirect("/tarefas");
+    }else{
+        res.redirect("/tarefas")
+    }
+}
+module.exports = {getTarefas, addTarefa, deleteTarefa};

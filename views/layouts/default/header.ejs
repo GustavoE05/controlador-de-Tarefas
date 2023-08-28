@@ -1,12 +1,19 @@
 <header>
     <div id="logo">
-        <img src="./midias/hello.png" alt="">
-        
+        <img src="./midias/hello.png" alt="">      
+    </div>
+    <div id="user">
+        <% if (locals.layoutsVariables.user){ %>
+            <p>
+                <i class="bi-alarm" style="font-size: 1rem; color: green;"> </i>
+                <% locals.layoutsVariables.user.nome %>
+            </p>
+        <%}%>
     </div>
     <hr>
     <h1>SEJAM BEM BRUNO'S</h1>
     <hr>
     <div id="mensagem">
 
-    </div>
+    </div> 
 </header>

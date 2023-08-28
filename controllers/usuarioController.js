@@ -17,7 +17,7 @@ let usuarios = [];
                 email: resp[0].email
             }
 
-            res.redirect('/')
+            res.redirect('/tarefas')
             
         }else{
             //usuario invalido
@@ -27,4 +27,10 @@ let usuarios = [];
     //res.render('login')
     //res.redirect('./login')
 }
-module.exports = {login, autenticar}
+
+async function logout(req, res){
+    delete req.session.user
+    res.redirect('/')
+}
+
+module.exports = {login, autenticar, logout}

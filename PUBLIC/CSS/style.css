@@ -9,3 +9,19 @@ h1{
     width: 400px;
     height: 100px;
 }
+#user{
+    width: 50px;
+    height: 50px;
+}
+.bi-pencil-square{
+   float: left;
+   color: green;
+   margin-left: 1vw;
+}
+.bi-x-circle{
+    color: red;
+    margin-left: 1vw;
+}
+li{
+    float: left;
+}
